@@ -1,0 +1,54 @@
+import java.util.*;
+
+abstract class Shape{
+    double val1;
+    double val2;
+
+    public void input(){
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter the dimension");
+        val1 = sc.nextDouble();
+        System.out.println("Enetr 2nd dimension");
+        val2 = sc.nextDouble();
+    }
+
+    abstract void compute_area(); 
+}
+
+class rectangle extends Shape{
+    public void compute_area(){
+        double area=val1*val2;
+        System.out.println("Area of rectangle:"+area);
+    }
+}
+
+class triangle extends Shape{
+    public void compute_area(){
+        double area=0.5*val1*val2;
+        System.out.println("Area of triangle:"+area);
+    }
+}
+
+public class practical4{
+    public static void main(String[]args){
+        Scanner sc =new Scanner (System.in);
+        System.out.println("Choose shape");
+        System.out.println("1.Triangle");
+        System.out.println("2.Rectangle");
+        int ch=sc.nextInt();
+
+        Shape sh;
+        if(ch==1){
+            sh= new triangle();
+    
+        }else if(ch==2){
+            sh=new rectangle();
+        }
+        else{
+            System.out.println("Enter valid choice");
+            return;
+        }
+        sh.input();
+        sh.compute_area();
+    }
+}
