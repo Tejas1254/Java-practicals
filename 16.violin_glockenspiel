@@ -1,0 +1,46 @@
+// import java.util.Scanner;
+
+abstract class Instrument {
+
+    abstract void Play();
+    abstract void Tune();
+}
+
+class Glockenspiel extends Instrument{
+    
+    void Play(){
+        System.out.println("Glockenspiel is playing");
+    }
+
+    void Tune(){
+        System.out.println("Glockenspiel is tuning");
+    }
+}
+
+class Violin extends Instrument{
+    
+    void Play(){
+        System.out.println("Violin is playing");
+    }
+
+    void Tune(){
+        System.out.println("Violin is tuning");
+    }
+}
+
+public class practical16{
+    public static void main (String []args){
+        Instrument g=new Glockenspiel();
+        Instrument v= new Violin();
+
+        System.out.println("Glockenspiel:");
+        g.Play();
+        g.Tune();
+        System.out.println("");
+
+        System.out.println("Violin:");
+        v.Play();
+        v.Tune();
+
+    }
+}
