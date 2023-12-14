@@ -1,0 +1,104 @@
+import java.util.Scanner;
+
+// Common base class - Publication
+class Publication {
+    String title;
+    double price;
+    int copies;
+
+    // Common method
+    public void saleCopy(int quantity) {
+        copies -= quantity;
+    }
+}
+
+// Book class extending Publication
+class Book extends Publication {
+    String author;
+
+    // Constructor
+    public Book(String title, double price, int copies, String author) {
+        this.title = title;
+        this.price = price;
+        this.copies = copies;
+        this.author = author;
+    }
+
+    // Method specific to Book class
+    public void orderCopies(int quantity) {
+        copies += quantity;
+        System.out.println(quantity + " copies of '" + title + "' by " + author + " ordered.");
+    }
+}
+
+// Magazine class extending Publication
+class Magazine extends Publication {
+    int currentIssue;
+
+    // Constructor
+    public Magazine(String title, double price, int copies, int currentIssue) {
+        this.title = title;
+        this.price = price;
+        this.copies = copies;
+        this.currentIssue = currentIssue;
+    }
+
+    // Methods specific to Magazine class
+    public void orderQty(int quantity) {
+        copies += quantity;
+        System.out.println(quantity + " copies of '" + title + "' ordered.");
+    }
+
+    public void receiveIssue(int newIssue) {
+        currentIssue = newIssue;
+        System.out.println("Magazine '" + title + "' received new issue: " + newIssue);
+    }
+}
+
+// Main program
+public class practical2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input for a book
+        System.out.println("Enter details for a book:");
+        System.out.print("Title: ");
+        String bookTitle = scanner.nextLine();
+        System.out.print("Author: ");
+        String author = scanner.nextLine();
+        System.out.print("Price: ");
+        double bookPrice = scanner.nextDouble();
+        System.out.print("Initial copies: ");
+        int initialBookCopies = scanner.nextInt();
+
+        Book book = new Book(bookTitle, bookPrice, initialBookCopies, author);
+
+        // Order additional copies of the book
+        System.out.print("Enter the quantity of additional copies to order: ");
+        int orderQuantity = scanner.nextInt();
+        book.orderCopies(orderQuantity);
+
+        // Input for a magazine
+        System.out.println("\nEnter details for a magazine:");
+        scanner.nextLine(); // Consume the newline character
+        System.out.print("Title: ");
+        String magazineTitle = scanner.nextLine();
+        System.out.print("Price: ");
+        double magazinePrice = scanner.nextDouble();
+        System.out.print("Initial copies: ");
+        int initialMagazineCopies = scanner.nextInt();
+
+        Magazine magazine = new Magazine(magazineTitle, magazinePrice, initialMagazineCopies, 1);
+
+        // Order additional copies of the magazine
+        System.out.print("Enter the quantity of additional copies to order: ");
+        orderQuantity = scanner.nextInt();
+        magazine.orderQty(orderQuantity);
+
+        // Display total sale of the publication
+        System.out.println("\nTotal sale of '" + book.title + "': $" + (book.copies * book.price));
+        System.out.println("Total sale of '" + magazine.title + "': $" + (magazine.copies * magazine.price));
+
+        scanner.close();
+    }
+}
