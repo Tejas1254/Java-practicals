@@ -1,0 +1,42 @@
+class Animal{
+    public void move(){
+        System.out.println("animal is moving");
+    }
+    public void makeSound(){
+        System.out.println("animal is making sound");
+    }
+}
+
+class Bird extends Animal{
+    
+    public void move(){
+        System.out.println("Bird is flying");
+    }
+    public void makeSound(){
+        System.out.println("Bird is chirping");
+    }
+}
+
+class Panthera extends Animal{
+    
+    public void move(){
+        System.out.println("Panthera is walking");
+    }
+    public void makeSound(){
+        System.out.println("Panthera is roaring");
+    }
+}
+
+
+public class practical12 {
+    public static void main(String[] args){
+        Bird b=new Bird();
+        Panthera p=new Panthera();
+        System.out.println("Bird:");
+        b.move();
+        b.makeSound();
+        System.out.println("Panthera:");
+        p.move();
+        p.makeSound();
+    }
+}
