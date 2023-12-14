@@ -1,0 +1,60 @@
+import java.util.*;
+
+class Exception
+{
+    public void ArrayIndexOutOfBound(){ 
+        try{ 
+            int index , value;
+            int arr[]  = {94,84,65,44,54,84,48,6,4};
+            System.out.println("Enter the array index");
+            Scanner sc = new Scanner(System.in);
+            index = sc.nextInt();
+            value = arr[index];
+            System.out.println("The value is " +value);
+
+        }
+        catch(ArrayIndexOutOfBoundsException e)
+        {
+            System.out.println("Array Index Out Of Bound");
+        }
+    }
+    public int divison(int num1,int num2)
+    {
+        int num = num1/num2;
+        return num;
+    }
+    public void NumberFormat()
+    {
+        try
+        {
+            String num1 ,num2;
+            
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter the num1");
+            num1 = sc.nextLine();
+
+            System.out.println("Enter the num2");
+            num2 = sc.nextLine();
+
+           int num =  divison(Integer.parseInt(num1),Integer.parseInt(num2));
+           System.out.println("The divison is" +num);
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Exception " +e);
+        }
+        catch(ArithmeticException e)
+        {
+            System.out.println("Exception " +e);
+        }
+    }
+
+}
+public class ExceptionCatch {
+    public static void main(String[] args) 
+    {
+        Exception sc = new Exception();
+        sc.ArrayIndexOutOfBound();
+        sc.NumberFormat();
+    }
+}
