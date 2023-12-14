@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+abstract class Shape{
+     
+    abstract double calculateArea();
+    abstract double calculatePerimeter(); 
+}
+
+
+class Circle extends Shape{
+    double radius;
+
+    Circle(double radius){
+        this.radius=radius;
+    }
+
+    public double calculateArea(){
+        return 3.14*radius*radius;
+    }
+    public double calculatePerimeter(){
+        return 2*3.14*radius;
+    }
+}
+class Triangle extends Shape{
+    double height;
+    double base;
+    double side1,side2,side3;
+    Triangle(double base,double height,double side1,double side2,double side3){
+        this.base=base;
+        this.height=height;
+        this.side1=side1;
+        this.side2=side2;
+        this.side3=side3;
+    }
+    public double calculateArea(){
+        return 0.5*base*height;
+    }
+    public double calculatePerimeter(){
+        return side1+side2+side3 ;
+    }
+}
+
+public class practical15{
+    public static void main(String[]args){
+
+        Scanner sc=new Scanner(System.in);
+
+        Circle c=new Circle(5.0);
+        Triangle t=new Triangle(4.0,3.0,8.0,3.0,4.0);
+        
+        System.out.println("Circle-Area:"+c.calculateArea());
+        System.out.println("Circle-Perimeter:"+c.calculatePerimeter());
+
+        System.out.println("Triangle-Area:"+t.calculateArea());
+        System.out.println("Triangle-Perimter:"+t.calculatePerimeter());
+    }
+}
+
