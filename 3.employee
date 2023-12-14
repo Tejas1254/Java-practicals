@@ -1,0 +1,99 @@
+// Design and develop inheritance for a given case study, identify objects and relationships and
+// implement inheritance wherever applicable. Employee class has Emp_name, Emp_id, Address,
+// Mail_id, and Mobile_noas members. Inherit the classes: Programmer, Team Lead, Assistant Project
+// Manager and Project Manager from employee class. Add Basic Pay (BP) as the member of all the
+// inherited classes with 97% of BP as DA, 10 % of BP as HRA, 12% of BP as PF, 0.1% of BP for
+// staff club fund. Generate pay slips for the employees with their gross and net salary
+
+import java.util.*;
+
+class Employee
+{
+    String name , mail , add;
+    int id, mobno;
+    float basicpay;
+
+    Employee(String name,String mail,String add,int id,int mobno,float basicpay)
+    {
+        this.name = name;
+        this.mail = mail;
+        this.add = add;
+        this.id = id;
+        this.mobno = mobno;
+        this.basicpay = basicpay;
+    }
+
+    public void payslip()
+    {
+        float DA = basicpay * 0.97f;
+        float HRA = basicpay * 0.1f;
+        float PF = basicpay * 0.12f;
+        float SCF = basicpay * 0.001f;
+        float gross=DA+HRA+basicpay;
+        float net = gross- PF - SCF ;
+
+        System.out.println( "Employee " +name);
+        System.out.println( "mail " +mail);
+        System.out.println( "address" +add);
+        System.out.println( "id " +id);
+        System.out.println( "mobo " +mobno);
+        System.out.println( "Employee " +name);
+        System.out.println("Gross salary"+gross);
+        System.out.println("Net salary"+net);
+    }
+}
+class TeamLead extends Employee
+{
+   public TeamLead(String name ,String mail , String add ,int id,int  mobno ,float basicpay)
+   {
+    super( name , mail , add , id,  mobno , basicpay);
+   } 
+}
+
+class Programmer extends Employee
+{
+   public Programmer(String name ,String mail , String add ,int id,int  mobno ,float basicpay)
+   {
+    super( name , mail , add , id,  mobno , basicpay);
+   } 
+}
+
+class AssistantProjectManager extends Employee
+{
+   public AssistantProjectManager(String name ,String mail , String add ,int id,int  mobno ,float basicpay)
+   {
+    super( name , mail , add , id,  mobno , basicpay);
+   } 
+}
+
+class ProjectManager extends Employee
+{
+   public ProjectManager(String name ,String mail , String add ,int id,int  mobno ,float basicpay)
+   {
+    super( name , mail , add , id,  mobno , basicpay);
+   } 
+}
+
+ public class practical3
+{
+    public static void main(String args[])
+    {   System.out.println("#------------------------------------------------#");
+        System.out.println("Programmer:");
+        Employee E = new Employee("Sandesh","lakegmail","Nighoj",848898494,549845684,1000000);
+        E.payslip();
+        System.out.println("#------------------------------------------------#");
+        System.out.println("TeamLead:");
+        TeamLead TE = new TeamLead("HFUI","kfoiaof","parner",54894,4865844,10000);
+        TE.payslip();
+        System.out.println("#------------------------------------------------#");
+        System.out.println("AssistantProjectManager:");
+        AssistantProjectManager AP = new AssistantProjectManager("HFUI","kfoiaof","parner",54894,4865844,10000);
+        AP.payslip();
+        System.out.println("#------------------------------------------------#");
+        System.out.println("ProjectManager:");
+        ProjectManager PM = new ProjectManager("HFUI","kfoiaof","parner",54894,4865844,10000);
+        PM.payslip();
+        System.out.println("#------------------------------------------------#");
+    }
+
+}
