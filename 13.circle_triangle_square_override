@@ -1,0 +1,73 @@
+import java.util.*;
+
+class Shape{
+    public void draw(){
+        System.out.println("Drawing shape");
+    }
+    public double calculateArea(){
+        return 0.0;
+    }
+}
+
+class Circle extends  Shape{
+    double radius;
+
+    Circle(double radius){
+        this.radius=radius;
+    }
+    public void draw(){
+        System.out.println("Drawing circle");
+    }
+    public double calculateArea(){
+        return 3.14*radius*radius;
+        
+    }
+}
+
+class Triangle extends  Shape{
+    double base;
+    double height;
+
+    Triangle(double base,double height){
+        this.base=base;
+        this.height=height;
+    }
+    public void draw(){
+        System.out.println("Drawing circle");
+    }
+    public double calculateArea(){
+        return 0.5*base*height;
+        
+    }
+}
+class Square extends  Shape{
+    double side;
+
+    Square(double side){
+        this.side=side;
+    }
+    public void draw(){
+        System.out.println("Drawing circle");
+    }
+    public double calculateArea(){
+        return side*side;
+        
+    }
+}
+
+public class practical13{
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+
+        Circle c=new Circle(5.0);
+        Square s=new Square(3.0);
+        Triangle t=new Triangle(8.0,6.0);
+
+        System.out.println("Circle-Area:"+c.calculateArea());
+        c.draw();
+        System.out.println("Square-Area:"+s.calculateArea());
+        s.draw();
+        System.out.println("Triangle-Area:"+t.calculateArea());
+        t.draw();
+    }
+}
