@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+class Shape{
+    public void draw(){
+        System.out.println("Shape is drawing");
+    }
+
+    public double calculateArea(){
+        return 0.0;
+    }
+}
+
+class Circle extends Shape{
+    double radius;
+    Circle (double radius){
+        this.radius=radius;
+    }
+    public void draw(){
+        System.out.println("Drawing a circle ");
+    }
+
+    public double calculateArea(){
+        return 3.14*radius*radius;
+    }
+}
+class Cylinder extends Shape{
+    double radius;
+    double height;
+    
+    Cylinder (double radius,double height){
+        this.radius=radius;
+        this.height=height;
+    }
+    public void draw(){
+        System.out.println("Circle is drawing");
+    }
+
+    public double calculateArea(){
+        return ((2*3.14*radius*radius)+(2*3.14*radius*height));
+    }
+}
+
+public class practical14{
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+
+        Circle c=new Circle(5.0);
+        Cylinder cy=new Cylinder(6.0,12.0);
+
+        System.out.println("Circle-Area:"+c.calculateArea());
+        c.draw();
+
+        System.out.println("Cylinder-Area:"+cy.calculateArea());
+        cy.draw();
+    }
+}
