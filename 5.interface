@@ -1,0 +1,82 @@
+// Interface defining common functionalities for vehicles
+interface Vehicle {
+    void gearChange(int newGear);
+    void speedUp(int increment);
+    void applyBrakes(int decrement);
+}
+
+// Concrete class implementing Vehicle interface for Bicycle
+class Bicycle implements Vehicle {
+    // private int currentGear;
+
+    public void gearChange(int newGear) {
+        int currentGear = newGear;
+        System.out.println("Bicycle: Changed gear to " + currentGear);
+    }
+
+    public void speedUp(int increment) {
+        System.out.println("Bicycle: Speeding up by " + increment + " km/h");
+    }
+
+    public void applyBrakes(int decrement) {
+        System.out.println("Bicycle: Applying brakes, reducing speed by " + decrement + " km/h");
+    }
+}
+
+// Concrete class implementing Vehicle interface for Bike
+class Bike implements Vehicle {
+    // private int currentGear;
+
+    public void gearChange(int newGear) {
+        int currentGear = newGear;
+        System.out.println("Bike: Changed gear to " + currentGear);
+    }
+
+    public void speedUp(int increment) {
+        System.out.println("Bike: Speeding up by " + increment + " km/h");
+    }
+
+    public void applyBrakes(int decrement) {
+        System.out.println("Bike: Applying brakes, reducing speed by " + decrement + " km/h");
+    }
+}
+
+// Concrete class implementing Vehicle interface for Car
+class Car implements Vehicle {
+    // private int currentGear;
+
+    public void gearChange(int newGear) {
+        int currentGear = newGear;
+        System.out.println("Car: Changed gear to " + currentGear);
+    }
+
+    public void speedUp(int increment) {
+        System.out.println("Car: Speeding up by " + increment + " km/h");
+    }
+
+    public void applyBrakes(int decrement) {
+        System.out.println("Car: Applying brakes, reducing speed by " + decrement + " km/h");
+    }
+}
+
+// Main program to demonstrate the usage of the classes
+public class practical5 {
+    public static void main(String[] args) {
+        Bicycle bicycle = new Bicycle();
+        Bike bike = new Bike();
+        Car car = new Car();
+
+        // Example usage
+        bicycle.gearChange(3);
+        bicycle.speedUp(10);
+        bicycle.applyBrakes(5);
+
+        bike.gearChange(4);
+        bike.speedUp(20);
+        bike.applyBrakes(8);
+
+        car.gearChange(6);
+        car.speedUp(30);
+        car.applyBrakes(12);
+    }
+}
