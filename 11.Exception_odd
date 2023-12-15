@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+// Custom exception for odd numbers
+class OddNumberException extends Exception {
+    public OddNumberException(String message) {
+        super(message);
+    }
+}
+
+public class practical11 {
+    // Method to check if a number is even and throw an exception if it's odd
+    public static void checkEvenNumber(int number) throws OddNumberException {
+        if (number % 2 != 0) {
+            throw new OddNumberException("Exception: Odd number not allowed!");
+        } else {
+            System.out.println("Number is even.");
+        }
+    }
+
+    public static void main(String[] args) {
+        // Create Scanner object for user input
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            // Take user input for a number
+            System.out.print("Enter a number: ");
+            int userNumber = scanner.nextInt();
+
+            // Test the method with the user-provided number
+            checkEvenNumber(userNumber);
+        } catch (OddNumberException e) {
+            // Handle the exception
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            // Handle other input-related exceptions
+            System.out.println("Invalid input. Please enter a valid integer.");
+        } finally {
+            // Close the scanner to prevent resource leak
+            scanner.close();
+        }
+    }
+}
