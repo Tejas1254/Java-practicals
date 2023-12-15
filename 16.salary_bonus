@@ -1,0 +1,65 @@
+class Employee {
+    String name;
+    String address;
+    double salary;
+    String jobTitle;
+
+    public Employee(String jobTitle, String name, String address, double salary) {
+        this.name = name;
+        this.address = address;
+        this.salary = salary;
+        this.jobTitle = jobTitle;
+    }
+
+    public void displayInfo() {
+        System.out.println("Job Title: " + jobTitle);
+        System.out.println("Name: " + name);
+        System.out.println("Address: " + address);
+        System.out.println("Salary: " + salary);
+    }
+
+    public double calculateBonus() {
+        return salary * 0.1;
+    }
+}
+
+class Manager extends Employee {
+    public Manager(String name, String address, double salary) {
+        super("Manager", name, address, salary);
+    }
+}
+
+class Developer extends Employee {
+    public Developer(String name, String address, double salary) {
+        super("Developer", name, address, salary);
+    }
+}
+
+class Programmer extends Employee {
+    public Programmer(String name, String address, double salary) {
+        super("Programmer", name, address, salary);
+    }
+}
+
+public class practical16 {
+    public static void main(String[] args) {
+        Manager m = new Manager("Tejas", "Pune", 70000);
+        Developer d = new Developer("Sandesh", "Ravet", 60000);
+        Programmer p = new Programmer("Shreyash", "Mumbai", 55000);
+
+        System.out.println("Manager Information");
+        m.displayInfo();
+        System.out.println("Bonus: " + m.calculateBonus());
+        System.out.println();
+
+        System.out.println("Developer Information");
+        d.displayInfo();
+        System.out.println("Bonus: " + d.calculateBonus());
+        System.out.println();
+
+        System.out.println("Programmer Information");
+        p.displayInfo();
+        System.out.println("Bonus: " + p.calculateBonus());
+        System.out.println();
+    }
+}
